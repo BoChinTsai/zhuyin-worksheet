@@ -497,7 +497,7 @@ select {
   font-size: 12px;
 }
 
-@media (max-width: 760px) {
+@media screen and (max-width: 760px) {
   .app-shell {
     padding: 16px;
   }
@@ -548,6 +548,11 @@ select {
     padding: 0.8cm;
   }
 
+  .annotation-row {
+    align-items: center;
+    flex-direction: row;
+  }
+
   .page-landscape .sheet {
     width: 29.7cm;
     min-height: 21cm;
@@ -567,4 +572,3 @@ select {
     margin: 0;
   }
 }
-
