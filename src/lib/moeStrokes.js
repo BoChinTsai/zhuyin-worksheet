@@ -1,4 +1,4 @@
-const MOE_STROKE_BASE_URL = "https://stroke.gh.miniasp.com/data";
+const MOE_STROKE_BASE_URL = `${import.meta.env.BASE_URL}strokes`;
 const strokeCache = new Map();
 
 export async function loadMoeStrokeData(character) {
