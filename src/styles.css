@@ -228,6 +228,9 @@ select {
 .layout-compact .character-section {
   min-width: 0;
   margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .annotation-row {
@@ -432,6 +435,10 @@ select {
 
 .practice-row {
   display: grid;
+}
+
+.layout-compact .practice-row {
+  margin-top: auto;
 }
 
 .practice-box {
