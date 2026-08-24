@@ -236,12 +236,13 @@ select {
   align-items: center;
   gap: 12px;
   font-size: 13px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .layout-compact .annotation-row {
   gap: 6px;
   font-size: 11px;
+  flex-wrap: wrap;
 }
 
 .annotation-medium .annotation-row {
@@ -369,48 +370,56 @@ select {
 }
 
 .stroke-sequence {
-  display: inline-flex;
-  gap: 3px;
-  flex: 0 0 6.2cm;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--sequence-min-size, 18px), 1fr));
+  grid-auto-rows: var(--sequence-min-size, 18px);
+  align-items: center;
+  gap: 2px;
+  flex: 0 1 6.2cm;
+  width: 6.2cm;
   max-width: 6.2cm;
-  overflow: hidden;
-  white-space: nowrap;
+  min-width: 3.6cm;
+  overflow: visible;
 }
 
 .layout-compact .stroke-sequence {
-  flex: 1 1 1.8cm;
-  max-width: none;
+  flex: 1 1 100%;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  order: 3;
 }
 
 .stroke-sequence svg {
-  flex: 0 0 auto;
-  width: 22px;
-  height: 22px;
+  width: min(var(--sequence-glyph-size, 22px), 100%);
+  height: auto;
+  aspect-ratio: 1;
+  justify-self: center;
 }
 
-.annotation-medium .stroke-sequence svg {
-  width: 30px;
-  height: 30px;
+.annotation-medium .stroke-sequence {
+  --sequence-min-size: 24px;
+  --sequence-glyph-size: 30px;
 }
 
-.annotation-large .stroke-sequence svg {
-  width: 34px;
-  height: 34px;
+.annotation-large .stroke-sequence {
+  --sequence-min-size: 28px;
+  --sequence-glyph-size: 34px;
 }
 
-.layout-compact .stroke-sequence svg {
-  width: 18px;
-  height: 18px;
+.layout-compact .stroke-sequence {
+  --sequence-min-size: 14px;
+  --sequence-glyph-size: 14px;
 }
 
-.layout-compact.annotation-medium .stroke-sequence svg {
-  width: 22px;
-  height: 22px;
+.layout-compact.annotation-medium .stroke-sequence {
+  --sequence-min-size: 18px;
+  --sequence-glyph-size: 18px;
 }
 
-.layout-compact.annotation-large .stroke-sequence svg {
-  width: 26px;
-  height: 26px;
+.layout-compact.annotation-large .stroke-sequence {
+  --sequence-min-size: 22px;
+  --sequence-glyph-size: 22px;
 }
 
 .past-stroke {

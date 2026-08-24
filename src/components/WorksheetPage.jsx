@@ -77,7 +77,10 @@ function getRowsPerPage(config) {
     large: 1.62,
   }[config.annotationSize] ?? 0.98;
   const pronunciationExtraCm = pronunciationMode === "both" ? 0.24 : 0;
-  const rowHeightCm = boxWidthCm + (hasMeta ? annotationExtraCm + pronunciationExtraCm : 0.12);
+  const sequenceExtraCm = config.showSequence
+    ? { small: 0.45, medium: 0.65, large: 0.85 }[config.annotationSize] ?? 0.45
+    : 0;
+  const rowHeightCm = boxWidthCm + (hasMeta ? annotationExtraCm + pronunciationExtraCm + sequenceExtraCm : 0.12);
   const usableHeightCm = page.contentHeightCm - 0.55 - (hasHeader ? 1.5 : 0);
   return Math.max(1, Math.floor(usableHeightCm / rowHeightCm));
 }
@@ -103,7 +106,10 @@ function getCompactPageLayout(config) {
     large: 1.32,
   }[config.annotationSize] ?? 0.82;
   const pronunciationExtraCm = pronunciationMode === "both" ? 0.2 : 0;
-  const unitHeightCm = boxWidthCm + (hasMeta ? annotationExtraCm + pronunciationExtraCm : 0.12);
+  const sequenceExtraCm = config.showSequence
+    ? { small: 0.45, medium: 0.65, large: 0.85 }[config.annotationSize] ?? 0.45
+    : 0;
+  const unitHeightCm = boxWidthCm + (hasMeta ? annotationExtraCm + pronunciationExtraCm + sequenceExtraCm : 0.12);
   const rows = Math.max(1, Math.floor(usableHeightCm / unitHeightCm));
   return { columns, itemsPerPage: Math.max(1, columns * rows) };
 }
