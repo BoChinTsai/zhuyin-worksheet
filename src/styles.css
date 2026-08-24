@@ -397,12 +397,12 @@ select {
   justify-self: center;
 }
 
-.annotation-medium .stroke-sequence {
+.stroke-medium .stroke-sequence {
   --sequence-min-size: 24px;
   --sequence-glyph-size: 30px;
 }
 
-.annotation-large .stroke-sequence {
+.stroke-large .stroke-sequence {
   --sequence-min-size: 28px;
   --sequence-glyph-size: 34px;
 }
@@ -412,12 +412,12 @@ select {
   --sequence-glyph-size: 14px;
 }
 
-.layout-compact.annotation-medium .stroke-sequence {
+.layout-compact.stroke-medium .stroke-sequence {
   --sequence-min-size: 18px;
   --sequence-glyph-size: 18px;
 }
 
-.layout-compact.annotation-large .stroke-sequence {
+.layout-compact.stroke-large .stroke-sequence {
   --sequence-min-size: 22px;
   --sequence-glyph-size: 22px;
 }

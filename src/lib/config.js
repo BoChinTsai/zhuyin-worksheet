@@ -15,6 +15,7 @@ export const DEFAULT_CONFIG = {
   numWhiteBoxes: 3,
   numPracticeBoxes: 10,
   annotationSize: "small",
+  strokeSize: "small",
   translation: "",
 };
 
@@ -55,6 +56,7 @@ export function parseWorksheetParams(params) {
     numWhiteBoxes: intParam(params, "numWhiteBoxes", DEFAULT_CONFIG.numWhiteBoxes),
     numPracticeBoxes: intParam(params, "numPracticeBoxes", DEFAULT_CONFIG.numPracticeBoxes),
     annotationSize: params.get("annotationSize") || DEFAULT_CONFIG.annotationSize,
+    strokeSize: params.get("strokeSize") || DEFAULT_CONFIG.strokeSize,
     translation: params.get("translation") ?? "",
   };
 }
@@ -78,7 +80,7 @@ export function worksheetUrl(config) {
   params.set("numWhiteBoxes", String(config.numWhiteBoxes));
   params.set("numPracticeBoxes", String(config.numPracticeBoxes));
   params.set("annotationSize", config.annotationSize);
+  params.set("strokeSize", config.strokeSize);
   params.set("translation", config.translation);
   return `/worksheet?${params.toString()}`;
 }
-

@@ -129,6 +129,14 @@ export function WorksheetForm({ initialConfig = DEFAULT_CONFIG, preferStoredConf
             </select>
           </label>
           <label>
+            <span>Stroke size</span>
+            <select value={config.strokeSize} onChange={(event) => update({ strokeSize: event.target.value })}>
+              <option value="small">小</option>
+              <option value="medium">中</option>
+              <option value="large">大</option>
+            </select>
+          </label>
+          <label>
             <span>Pronunciation</span>
             <select
               value={config.pronunciationMode}
@@ -195,4 +203,3 @@ function Toggle({ label, checked, onChange }) {
     </label>
   );
 }
-
